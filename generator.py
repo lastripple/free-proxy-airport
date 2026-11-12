@@ -726,7 +726,7 @@ def build_config(metrics: list[ProxyMetric]) -> dict[str, Any]:
             {
                 "name": "PROXY",
                 "type": "select",
-                "proxies": ["AUTO-FAST", "FALLBACK"],
+                "proxies": ["AUTO-FAST", "FALLBACK", "HK-POOL", "JP-POOL", "US-POOL", "AI-POOL"],
             },
         ],
         "rules": [
