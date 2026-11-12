@@ -645,16 +645,28 @@ def load_existing_metrics() -> list[ProxyMetric]:
     return metrics
 
 
+AUTO_GROUP_LIMIT = 40
+REGION_GROUP_LIMIT = 35
+
+
 def build_config(metrics: list[ProxyMetric]) -> dict[str, Any]:
     if not metrics:
         metrics = [build_direct_fallback_metric()]
 
-    proxies = [item.proxy for item in metrics]
-    all_names = [item.proxy["name"] for item in metrics]
-    hk_names = names_for_region(metrics, "HK")
-    jp_names = names_for_region(metrics, "JP")
-    us_names = names_for_region(metrics, "US")
+    # Per-group caps: keep only the best few dozen nodes per group so the
+    # published subscription stays light in the client. The proxies list is
+    # trimmed to the union of group members (groups are the only entry point).
+    all_names = [item.proxy["name"] for item in metrics[:AUTO_GROUP_LIMIT]]
+    hk_names = names_for_region(metrics, "HK")[:REGION_GROUP_LIMIT]
+    jp_names = names_for_region(metrics, "JP")[:REGION_GROUP_LIMIT]
+    us_names = names_for_region(metrics, "US")[:REGION_GROUP_LIMIT]
     ai_names = low_latency_pool(metrics)
+    used_names = set(all_names) | set(hk_names) | set(jp_names) | set(us_names) | set(ai_names)
+    proxies = [item.proxy for item in metrics if item.proxy["name"] in used_names]
+    print(
+        f"[INFO] group caps applied (auto<={AUTO_GROUP_LIMIT}, region<={REGION_GROUP_LIMIT}): "
+        f"output proxies {len(proxies)} of {len(metrics)} tested"
+    )
 
     return {
         "mixed-port": 7890,
