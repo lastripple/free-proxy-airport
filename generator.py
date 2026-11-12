@@ -68,6 +68,23 @@ SOURCE_GROUPS = [
             "discover:free-clash-v2ray",
         ],
     },
+    {
+        "name": "ermaozi get_subscribe",
+        "primary": "https://blog.ermao.net/sub/clash/ermao.net",
+        "fallbacks": [],
+    },
+    {
+        "name": "peasoft NoMoreWalls",
+        "primary": "https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.meta.yml",
+        "fallbacks": [
+            "https://cdn.jsdelivr.net/gh/peasoft/NoMoreWalls@master/list.meta.yml",
+        ],
+    },
+    {
+        "name": "mahdibland V2RayAggregator Eternity",
+        "primary": "https://raw.githubusercontent.com/mahdibland/V2RayAggregator/master/Eternity.yml",
+        "fallbacks": [],
+    },
 ]
 
 SUPPORTED_PROXY_TYPES = {
