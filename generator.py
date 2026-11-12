@@ -774,7 +774,25 @@ def main() -> None:
     total_nodes, candidates = collect_proxies()
     metrics: list[ProxyMetric] = []
 
-    if candidates:
+    if candidates and os.getenv("FPA_SKIP_TEST") == "1":
+        # Restricted-egress mode (e.g. Simular box, where direct TCP to node
+        # endpoints is blocked but HTTPS works): keep every legal candidate
+        # untested with a nominal latency; the client's url-test groups do
+        # the live selection on the device instead.
+        metrics = []
+        for proxy in candidates:
+            name = str(proxy["name"])
+            region = detect_region(name)
+            metrics.append(
+                ProxyMetric(
+                    proxy=proxy,
+                    latency=500,
+                    region=region,
+                    health_score=health_score(name, 500, region),
+                )
+            )
+        print(f"[INFO] FPA_SKIP_TEST=1: skipped latency benchmark, keeping all {len(metrics)} candidates untested")
+    elif candidates:
         try:
             metrics = benchmark_proxies(candidates)
         except Exception as exc:

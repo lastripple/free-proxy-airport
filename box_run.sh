@@ -6,5 +6,5 @@ cd /workspace/free-proxy-airport
 RAW="https://raw.githubusercontent.com/lastripple/free-proxy-airport/main"
 curl -sL "$RAW/generator.py" -o generator.py
 curl -sL "$RAW/box_publish.py" -o box_publish.py
-python3 generator.py
+FPA_SKIP_TEST=1 python3 generator.py
 python3 box_publish.py
