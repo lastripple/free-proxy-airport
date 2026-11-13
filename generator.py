@@ -107,6 +107,7 @@ REQUIRED_GROUPS = (
     "JP-POOL",
     "US-POOL",
     "AI-POOL",
+    "STREAM-POOL",
     "FALLBACK",
     "PROXY",
 )
@@ -605,6 +606,51 @@ def low_latency_pool(metrics: list[ProxyMetric]) -> list[str]:
     return [item.proxy["name"] for item in ordered[:size]]
 
 
+STREAM_GROUP_LIMIT = 30
+STREAM_REGIONS = {"US", "JP", "HK", "SG"}
+# Name tags that mark a node as streaming-oriented in the free sources:
+# netflix / disney / hbo / youtube, plus common Chinese tags meaning
+# streaming / unlock / native.
+STREAM_NAME_KEYWORDS = (
+    "netflix",
+    "disney",
+    "hbo",
+    "youtube",
+    "流媒体",
+    "解锁",
+    "原生",
+)
+
+STREAM_RULES = (
+    "DOMAIN-SUFFIX,netflix.com,STREAM-POOL",
+    "DOMAIN-SUFFIX,nflxvideo.net,STREAM-POOL",
+    "DOMAIN-SUFFIX,disneyplus.com,STREAM-POOL",
+    "DOMAIN-SUFFIX,hbomax.com,STREAM-POOL",
+    "DOMAIN-SUFFIX,primevideo.com,STREAM-POOL",
+    "DOMAIN-SUFFIX,youtube.com,STREAM-POOL",
+    "DOMAIN-SUFFIX,googlevideo.com,STREAM-POOL",
+    "DOMAIN-SUFFIX,spotify.com,STREAM-POOL",
+    "DOMAIN-SUFFIX,twitch.tv,STREAM-POOL",
+    "DOMAIN-SUFFIX,tiktok.com,STREAM-POOL",
+)
+
+
+def streaming_pool(metrics: list[ProxyMetric]) -> list[str]:
+    if not metrics:
+        return ["DIRECT"]
+    candidates = [item for item in metrics if item.region in STREAM_REGIONS]
+    if not candidates:
+        return low_latency_pool(metrics)
+
+    def sort_key(item: ProxyMetric) -> tuple[int, int, float]:
+        name = str(item.proxy["name"]).lower()
+        tagged = 0 if any(word in name for word in STREAM_NAME_KEYWORDS) else 1
+        return (tagged, item.latency, -item.health_score)
+
+    ordered = sorted(candidates, key=sort_key)
+    return [item.proxy["name"] for item in ordered[:STREAM_GROUP_LIMIT]]
+
+
 def names_for_region(metrics: list[ProxyMetric], region: str) -> list[str]:
     names = [item.proxy["name"] for item in metrics if item.region == region]
     if names:
@@ -661,7 +707,8 @@ def build_config(metrics: list[ProxyMetric]) -> dict[str, Any]:
     jp_names = names_for_region(metrics, "JP")[:REGION_GROUP_LIMIT]
     us_names = names_for_region(metrics, "US")[:REGION_GROUP_LIMIT]
     ai_names = low_latency_pool(metrics)
-    used_names = set(all_names) | set(hk_names) | set(jp_names) | set(us_names) | set(ai_names)
+    stream_names = streaming_pool(metrics)
+    used_names = set(all_names) | set(hk_names) | set(jp_names) | set(us_names) | set(ai_names) | set(stream_names)
     proxies = [item.proxy for item in metrics if item.proxy["name"] in used_names]
     print(
         f"[INFO] group caps applied (auto<={AUTO_GROUP_LIMIT}, region<={REGION_GROUP_LIMIT}): "
@@ -717,6 +764,13 @@ def build_config(metrics: list[ProxyMetric]) -> dict[str, Any]:
                 "interval": 120,
             },
             {
+                "name": "STREAM-POOL",
+                "type": "url-test",
+                "proxies": stream_names,
+                "url": TEST_URL,
+                "interval": 120,
+            },
+            {
                 "name": "FALLBACK",
                 "type": "fallback",
                 "proxies": ["AUTO-FAST", "HK-POOL", "JP-POOL", "US-POOL"],
@@ -726,7 +780,7 @@ def build_config(metrics: list[ProxyMetric]) -> dict[str, Any]:
             {
                 "name": "PROXY",
                 "type": "select",
-                "proxies": ["AUTO-FAST", "FALLBACK", "HK-POOL", "JP-POOL", "US-POOL", "AI-POOL"],
+                "proxies": ["AUTO-FAST", "FALLBACK", "HK-POOL", "JP-POOL", "US-POOL", "AI-POOL", "STREAM-POOL"],
             },
         ],
         "rules": [
@@ -734,6 +788,7 @@ def build_config(metrics: list[ProxyMetric]) -> dict[str, Any]:
             "DOMAIN-SUFFIX,chatgpt.com,AI-POOL",
             "DOMAIN-SUFFIX,claude.ai,AI-POOL",
             "DOMAIN-SUFFIX,anthropic.com,AI-POOL",
+            *STREAM_RULES,
             "GEOIP,CN,DIRECT",
             "MATCH,PROXY",
         ],
@@ -762,6 +817,7 @@ def validate_config(config: dict[str, Any]) -> None:
         "DOMAIN-SUFFIX,chatgpt.com,AI-POOL",
         "DOMAIN-SUFFIX,claude.ai,AI-POOL",
         "DOMAIN-SUFFIX,anthropic.com,AI-POOL",
+        *STREAM_RULES,
         "GEOIP,CN,DIRECT",
         "MATCH,PROXY",
     ):
