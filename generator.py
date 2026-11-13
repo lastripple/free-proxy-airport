@@ -648,6 +648,70 @@ STREAM_RULES = (
 )
 
 
+# --- Rule providers -------------------------------------------------------
+# Base layer: Loyalsoldier/clash-rules (built daily from the v2fly domain
+# lists). Per-service layer: blackmatrix7/ios_rule_script, using the
+# No_Resolve variants so domain requests are not force-resolved just to
+# evaluate IP entries. The hand-written AI_RULES / STREAM_RULES above stay
+# in the rule list after the RULE-SET entries as a fallback, so the config
+# still routes the main services even if a provider download fails.
+LOYALSOLDIER_BASE = "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release"
+BLACKMATRIX7_BASE = "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash"
+
+BASE_PROVIDERS = (
+    ("applications", "classical", f"{LOYALSOLDIER_BASE}/applications.txt"),
+    ("private", "domain", f"{LOYALSOLDIER_BASE}/private.txt"),
+    ("reject", "domain", f"{LOYALSOLDIER_BASE}/reject.txt"),
+    ("direct", "domain", f"{LOYALSOLDIER_BASE}/direct.txt"),
+    ("lancidr", "ipcidr", f"{LOYALSOLDIER_BASE}/lancidr.txt"),
+    ("cncidr", "ipcidr", f"{LOYALSOLDIER_BASE}/cncidr.txt"),
+    ("telegramcidr", "ipcidr", f"{LOYALSOLDIER_BASE}/telegramcidr.txt"),
+)
+
+AI_PROVIDERS = ("OpenAI", "Claude", "Gemini", "Copilot")
+STREAM_PROVIDERS = ("Netflix", "Disney", "YouTube", "HBO", "AmazonPrimeVideo", "TikTok", "Spotify", "Twitch")
+
+
+def rule_providers() -> dict[str, Any]:
+    providers: dict[str, Any] = {}
+
+    def add(name: str, behavior: str, url: str) -> None:
+        providers[name] = {
+            "type": "http",
+            "behavior": behavior,
+            "url": url,
+            "path": f"./ruleset/{name}.yaml",
+            "interval": 86400,
+        }
+
+    for name, behavior, url in BASE_PROVIDERS:
+        add(name, behavior, url)
+    for name in AI_PROVIDERS + STREAM_PROVIDERS:
+        add(name.lower(), "classical", f"{BLACKMATRIX7_BASE}/{name}/{name}_No_Resolve.yaml")
+    return providers
+
+
+def build_rules() -> list[str]:
+    rules = [
+        "RULE-SET,applications,DIRECT",
+        "RULE-SET,private,DIRECT",
+        "RULE-SET,reject,REJECT",
+    ]
+    rules += [f"RULE-SET,{name.lower()},AI-POOL" for name in AI_PROVIDERS]
+    rules += AI_RULES
+    rules += [f"RULE-SET,{name.lower()},STREAM-POOL" for name in STREAM_PROVIDERS]
+    rules += STREAM_RULES
+    rules += [
+        "RULE-SET,direct,DIRECT",
+        "RULE-SET,lancidr,DIRECT",
+        "RULE-SET,cncidr,DIRECT",
+        "RULE-SET,telegramcidr,PROXY",
+        "GEOIP,CN,DIRECT",
+        "MATCH,PROXY",
+    ]
+    return rules
+
+
 def streaming_pool(metrics: list[ProxyMetric]) -> list[str]:
     if not metrics:
         return ["DIRECT"]
@@ -796,12 +860,8 @@ def build_config(metrics: list[ProxyMetric]) -> dict[str, Any]:
                 "proxies": ["AUTO-FAST", "FALLBACK", "HK-POOL", "JP-POOL", "US-POOL", "AI-POOL", "STREAM-POOL"],
             },
         ],
-        "rules": [
-            *AI_RULES,
-            *STREAM_RULES,
-            "GEOIP,CN,DIRECT",
-            "MATCH,PROXY",
-        ],
+        "rule-providers": rule_providers(),
+        "rules": build_rules(),
     }
 
 
@@ -822,14 +882,13 @@ def validate_config(config: dict[str, Any]) -> None:
     if missing:
         raise RuntimeError(f"generated config missing groups: {missing}")
     rules = config.get("rules", [])
-    for rule in (
-        *AI_RULES,
-        *STREAM_RULES,
-        "GEOIP,CN,DIRECT",
-        "MATCH,PROXY",
-    ):
+    for rule in build_rules():
         if rule not in rules:
             raise RuntimeError(f"generated config missing rule: {rule}")
+    providers = config.get("rule-providers", {})
+    for name in rule_providers():
+        if name not in providers:
+            raise RuntimeError(f"generated config missing rule provider: {name}")
 
 
 def print_summary(total_nodes: int, candidates: int, metrics: list[ProxyMetric]) -> None:
