@@ -606,6 +606,19 @@ def low_latency_pool(metrics: list[ProxyMetric]) -> list[str]:
     return [item.proxy["name"] for item in ordered[:size]]
 
 
+AI_RULES = (
+    "DOMAIN-SUFFIX,openai.com,AI-POOL",
+    "DOMAIN-SUFFIX,chatgpt.com,AI-POOL",
+    "DOMAIN-SUFFIX,claude.ai,AI-POOL",
+    "DOMAIN-SUFFIX,anthropic.com,AI-POOL",
+    "DOMAIN-SUFFIX,gemini.google.com,AI-POOL",
+    "DOMAIN-SUFFIX,aistudio.google.com,AI-POOL",
+    "DOMAIN-SUFFIX,grok.com,AI-POOL",
+    "DOMAIN-SUFFIX,x.ai,AI-POOL",
+    "DOMAIN-SUFFIX,perplexity.ai,AI-POOL",
+    "DOMAIN-SUFFIX,muse.ai,AI-POOL",
+)
+
 STREAM_GROUP_LIMIT = 30
 STREAM_REGIONS = {"US", "JP", "HK", "SG"}
 # Name tags that mark a node as streaming-oriented in the free sources:
@@ -784,10 +797,7 @@ def build_config(metrics: list[ProxyMetric]) -> dict[str, Any]:
             },
         ],
         "rules": [
-            "DOMAIN-SUFFIX,openai.com,AI-POOL",
-            "DOMAIN-SUFFIX,chatgpt.com,AI-POOL",
-            "DOMAIN-SUFFIX,claude.ai,AI-POOL",
-            "DOMAIN-SUFFIX,anthropic.com,AI-POOL",
+            *AI_RULES,
             *STREAM_RULES,
             "GEOIP,CN,DIRECT",
             "MATCH,PROXY",
@@ -813,10 +823,7 @@ def validate_config(config: dict[str, Any]) -> None:
         raise RuntimeError(f"generated config missing groups: {missing}")
     rules = config.get("rules", [])
     for rule in (
-        "DOMAIN-SUFFIX,openai.com,AI-POOL",
-        "DOMAIN-SUFFIX,chatgpt.com,AI-POOL",
-        "DOMAIN-SUFFIX,claude.ai,AI-POOL",
-        "DOMAIN-SUFFIX,anthropic.com,AI-POOL",
+        *AI_RULES,
         *STREAM_RULES,
         "GEOIP,CN,DIRECT",
         "MATCH,PROXY",
