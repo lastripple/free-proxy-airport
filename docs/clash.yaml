@@ -7,31 +7,8 @@ unified-delay: true
 tcp-concurrent: true
 global-client-fingerprint: chrome
 generated-by: free-proxy-airport-v7
-generated-at: '2026-11-14T22:52:06.935793+00:00'
+generated-at: '2026-11-15T02:20:25.887069+00:00'
 proxies:
-- name: '🇸🇬 新加坡 | SGP #1'
-  password: Z5lvhmLqSc
-  port: 48994
-  server: 173.234.15.84
-  skip-cert-verify: true
-  sni: m.microsoft.com
-  type: trojan
-  udp: true
-- client-fingerprint: firefox
-  encryption: none
-  name: '🇯🇵[www.v2nodes.com] vless-JP-1... #4'
-  network: ws
-  port: 443
-  server: 104.21.70.228
-  servername: jp3.yohototo.top
-  skip-cert-verify: false
-  tls: true
-  type: vless
-  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
-  ws-opts:
-    headers:
-      Host: jp3.yohototo.top
-    path: /tyxyws
 - type: vless
   name: 🇯🇵_JP_日本_IPV4
   server: zfapi.zalolink.com
@@ -46,34 +23,16 @@ proxies:
   reality-opts:
     public-key: cvong7paE8XIzzbKWgV5iUruP1pBqI2IhMuBHc8c0UE
     short-id: 15aa0ad4
-- alpn:
-  - ''
-  alterId: 0
+- type: vmess
+  name: 🇭🇰HK香港 (4)
+  server: dog-jp.kunlun01dns.com
+  port: 21016
+  uuid: 9464ca40-dd75-3742-a628-d931a9f413b2
   cipher: auto
-  name: '🇭🇰 香港 | HKG #4'
-  network: ws
-  port: 23026
-  server: 47.244.120.197
-  skip-cert-verify: true
+  alterId: 0
+  udp: true
   tls: false
-  type: vmess
-  udp: true
-  uuid: b9de1bc9-baa7-41ac-86f7-ccd59695cb21
-  ws-opts:
-    path: /arki
-- name: 🇭🇰 香港 | HKG 2
-  server: 45.192.194.104
-  port: 35600
-  type: vless
-  uuid: d34c4e7c-3eac-4a26-adb9-9004b6981ad8
-  tls: true
-  flow: xtls-rprx-vision
-  reality-opts:
-    public-key: zHmC_LkSMSrRHcetzsRJZvu6irqviiG3vf9VuXRL6FE
-  servername: www.iij.ad.jp
-  client-fingerprint: firefox
-  network: tcp
-  udp: true
+  skip-cert-verify: false
 - name: 🇭🇰HK-16.106.7.232-0252 | 0.022MB
   server: sclass-00.catcat321.com
   port: 20123
@@ -81,6 +40,21 @@ proxies:
   password: d9064589-74af-432a-9390-5d8a9da281bf
   sni: hk.catxstar.com
   skip-cert-verify: false
+- type: trojan
+  name: 🇸🇬_SG_新加坡_IPV4
+  server: matrix.phonicsindia.mobi
+  port: 48994
+  password: Z5lvhmLqSc
+  tls: true
+  servername: m.microsoft.com
+  sni: m.microsoft.com
+  skip-cert-verify: true
+- name: 🇸🇬SG_3|2.0MB/s
+  port: 443
+  server: 154.26.139.24
+  skip-cert-verify: true
+  tls: true
+  type: http
 - cipher: aes-256-gcm
   name: '🇸🇬[www.v2nodes.com] ss-SG-1616... #1'
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
@@ -100,57 +74,62 @@ proxies:
   cipher: aes-128-gcm
   password: Bwlqh7GcFB
 - cipher: aes-256-gcm
+  name: 🇯🇵[www.v2nodes.com] ss-JP-1599...
+  password: BeaUf9c0AEWH40Pu
+  port: 8388
+  server: 154.36.158.197
+  type: ss
+- encryption: none
+  name: 🇸🇬[www.v2nodes.com] vless-SG-8...
+  network: ws
+  port: 8443
+  server: cf.090227.xyz
+  servername: liusuyan.cc.cd
+  tls: true
+  type: vless
+  uuid: 889fa37f-6bce-4674-8a49-1cc435e11de7
+  ws-opts:
+    headers:
+      Host: liusuyan.cc.cd
+    path: /proxyip=ProxyIP.SG.CMLiussss.Net
+- cipher: aes-256-gcm
   name: 🇯🇵[www.v2nodes.com] ss-JP-1544...
   password: 3eOFeNssde7PYYMv
   port: 443
   server: 84.247.155.196
   type: ss
-- name: 🇯🇵 日本 | JPN 2
-  server: zfapi.zalolink.com
-  port: 43149
-  type: vless
-  uuid: 57beeeb0-03fc-4fc9-94da-7604488a7134
-  tls: true
-  flow: xtls-rprx-vision
-  reality-opts:
-    public-key: cvong7paE8XIzzbKWgV5iUruP1pBqI2IhMuBHc8c0UE
-    short-id: 15aa0ad4
-  servername: psstatic.cdn.bcebos.com
-  client-fingerprint: chrome
-  network: tcp
-  udp: true
 - cipher: aes-256-gcm
   name: '🇸🇬[www.v2nodes.com] ss-SG-1615... #1'
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   port: 19999
-  server: 149.88.106.74
+  server: 149.88.107.74
   type: ss
-- cipher: aes-256-gcm
-  name: '🇸🇬[www.v2nodes.com] ss-SG-1615... #3'
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  port: 19999
-  server: 149.88.107.47
-  type: ss
-- client-fingerprint: chrome
-  name: '🇸🇬[www.v2nodes.com] vless-SG-1... #7'
+- client-fingerprint: unsafe
+  encryption: none
+  name: '🇯🇵[www.v2nodes.com] vless-JP-1... #3-2'
   network: ws
-  port: 2096
-  server: 139.162.27.96
-  servername: free-server.techsonic.dev
+  port: 443
+  server: 155.103.116.110
+  servername: jp3.yohototo.top
   tls: true
   type: vless
-  uuid: 6e59d5c5-7aa3-4c36-a4c4-e3b899525ed2
+  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
   ws-opts:
     headers:
-      Host: free-server.techsonic.dev
-    path: /free-server.techsonic.dev
-- cipher: aes-256-gcm
-  name: '🇯🇵 日本 | JPN #2'
-  password: BeaUf9c0AEWH40Pu
-  port: 8388
-  server: 154.36.158.197
-  type: ss
-  udp: true
+      Host: jp3.yohototo.top
+    path: /tyxyws
+- name: 🇭🇰HK_2|1.3MB/s
+  port: 3128
+  server: 119.12.161.248
+  skip-cert-verify: true
+  type: http
+- name: 🇯🇵JP_1|4.2MB/s
+  password: EGJDy5Kg
+  port: 42000
+  server: 103.248.150.50
+  skip-cert-verify: true
+  type: socks5
+  username: paZFN3JA
 - cipher: aes-256-gcm
   name: '🇭🇰[www.v2nodes.com] ss-HK-1621... #1'
   password: AMok40FfaM+Ikwre16psBpVk6JHxsQZw
@@ -169,41 +148,70 @@ proxies:
   type: ss
   cipher: rc4-md5
   password: 14fFPrbezE3HDZzsMOr6
-- name: 🇭🇰 香港 | HKG
-  server: 47.242.81.94
-  port: 52080
-  type: vmess
-  uuid: e47b9f77-60e4-4738-8d53-772b6002e146
-  alterId: 0
-  cipher: auto
-  tls: false
-  alpn:
-  - ''
-  skip-cert-verify: true
-  network: http
-  http-opts:
-    method: GET
-    path:
-    - /QQqun-737805443
-    headers:
-      Host:
-      - openai.com
+- type: vless
+  name: 🇯🇵JP日本丨yoyapai.com (2)
+  server: 38.47.96.220
+  port: 11424
+  uuid: 1d16c6e0-1bbe-435b-b661-90043fee999c
   udp: true
+  tls: true
+  servername: notls.lukongtou.eu.org
+  sni: notls.lukongtou.eu.org
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: Telegram-WangCai2🇨🇳
+    headers:
+      Host: notls.lukongtou.eu.org
+- name: 🇭🇰 香港 | HKG
+  server: 8.217.1.203
+  port: 8443
+  type: vless
+  uuid: 8b17beac-b143-447d-aa68-14cbb121a602
+  tls: true
+  flow: xtls-rprx-vision
+  reality-opts:
+    public-key: 74P0QFvaK6B13rHsxR_t0lqRlg4YLuORD4VaHr5Jd38
+    short-id: 0bf55f64
+  servername: www.apple.com
+  client-fingerprint: chrome
+  network: tcp
+  udp: true
+- client-fingerprint: firefox
+  encryption: none
+  name: '🇯🇵[www.v2nodes.com] vless-JP-1... #3'
+  network: ws
+  port: 443
+  server: 104.21.70.228
+  servername: jp3.yohototo.top
+  skip-cert-verify: false
+  tls: true
+  type: vless
+  uuid: 4e4f1f70-5e56-4a76-bb9d-db087f4690c4
+  ws-opts:
+    headers:
+      Host: jp3.yohototo.top
+    path: /tyxyws
 - alpn:
   - ''
   alterId: 0
   cipher: auto
+  http-opts:
+    headers:
+      Host:
+      - openai.com
+    method: GET
+    path:
+    - /QQqun-737805443
   name: '🇭🇰 香港 | HKG #1'
-  network: ws
-  port: 36703
-  server: 47.244.120.197
+  network: http
+  port: 52080
+  server: 47.242.81.94
   skip-cert-verify: true
   tls: false
   type: vmess
   udp: true
-  uuid: 45b83519-9c4f-4052-a11b-02e017b636d4
-  ws-opts:
-    path: /arki
+  uuid: e47b9f77-60e4-4738-8d53-772b6002e146
 - name: 🇯🇵JP-84.247.155.196-0209 | 0.163MB
   server: 84.247.155.196
   port: 80
@@ -216,52 +224,53 @@ proxies:
   server: 149.28.130.108
   sni: searchcreativejobsandshowcaseyourartistictalents.com
   type: trojan
+- type: vless
+  name: 🇸🇬SG新加坡丨yoyapai.com
+  server: 43.174.195.1
+  port: 443
+  uuid: 24916ad0-847d-4522-9e17-f4347dee57fd
+  udp: true
+  tls: true
+  servername: kv.074167.xyz
+  sni: kv.074167.xyz
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: kv.074167.xyz
 - name: 🇯🇵JP-168.138.205.100-0221 | 1.456MB
   server: 168.138.205.100
   port: 53758
   type: ss
   cipher: aes-128-gcm
   password: Bwlqh7GcFB
-- name: 🇯🇵 日本 | JPN
-  server: zfapi.zalolink.com
-  port: 55688
-  type: vless
-  uuid: 57beeeb0-03fc-4fc9-94da-7604488a7134
-  tls: true
-  flow: xtls-rprx-vision
-  reality-opts:
-    public-key: 6dqd0hqbC0bht9RtsYamvlYdMpxyUbk7uXw0xtO8DzQ
-    short-id: 865c1b2c
-  servername: bilibili-vn.biliimg.com
-  client-fingerprint: chrome
-  network: tcp
-  udp: true
 - cipher: aes-256-gcm
   name: '🇸🇬[www.v2nodes.com] ss-SG-1615... #2'
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   port: 19999
-  server: 149.88.107.74
+  server: 149.88.107.47
   type: ss
-- name: 🇭🇰HK_1|1.9MB/s
-  port: 8443
-  server: 38.76.140.254
-  skip-cert-verify: true
+- client-fingerprint: chrome
+  name: '🇸🇬[www.v2nodes.com] vless-SG-1... #5'
+  network: ws
+  port: 2096
+  server: 139.162.27.96
+  servername: free-server.techsonic.dev
   tls: true
-  type: http
+  type: vless
+  uuid: 6e59d5c5-7aa3-4c36-a4c4-e3b899525ed2
+  ws-opts:
+    headers:
+      Host: free-server.techsonic.dev
+    path: /free-server.techsonic.dev
 - cipher: aes-256-gcm
   name: 🇸🇬[www.v2nodes.com] ss-SG-1616...
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   port: 19999
   server: 51.79.228.131
   type: ss
-- name: '🇸🇬 新加坡 | SGP #2'
-  password: Z5lvhmLqSc
-  port: 48994
-  server: matrix.phonicsindia.mobi
-  skip-cert-verify: true
-  sni: m.microsoft.com
-  type: trojan
-  udp: true
 - name: 🇸🇬[www.v2nodes.com] trojan-SG-...
   password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
   port: 443
@@ -269,23 +278,6 @@ proxies:
   skip-cert-verify: false
   sni: exploredigitaljobplatformandfindonlinework.com
   type: trojan
-- name: 🇺🇸US-169.197.142.68-0121 | 77.243MB
-  server: 169.197.142.68
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 🇺🇸US-137.184.89.151-0134 | 115.23MB
-  server: 137.184.89.151
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 🇺🇸US_10|1.1MB/s
-  port: 8800
-  server: 104.129.203.244
-  skip-cert-verify: true
-  type: http
 - name: 🇺🇸US-156.146.38.170-0213 | 0.098MB
   server: 156.146.38.170
   port: 443
@@ -298,8 +290,28 @@ proxies:
   type: ss
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 🇺🇸US-23.150.152.38-0139 | 45.996MB
-  server: 23.150.152.38
+- type: hysteria
+  name: 🇺🇸_US_美国_IPV4 (3)
+  server: 137.175.82.43
+  port: 20022
+  password: dongtaiwang.com
+  tls: true
+  servername: bing.com
+  sni: bing.com
+  skip-cert-verify: true
+  alpn:
+  - h3
+  up: '20'
+  down: '20'
+  auth-str: dongtaiwang.com
+- name: 🇺🇸US-38.128.66.32-0140 | 71.317MB
+  server: 38.128.66.32
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇺🇸US-172.111.36.123-0144 | 79.497MB
+  server: 172.111.36.123
   port: 19999
   type: ss
   cipher: aes-256-gcm
@@ -311,26 +323,115 @@ proxies:
   password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
   sni: blog.unlockyourfuturefindyourperfectcareer.com
   skip-cert-verify: false
-- name: 🇺🇸US-172.111.36.123-0144 | 79.497MB
-  server: 172.111.36.123
+- name: 🇺🇸US-156.146.38.168-0216 | 0.112MB
+  server: 156.146.38.168
+  port: 443
+  type: ss
+  cipher: aes-128-gcm
+  password: shadowsocks
+- type: vmess
+  name: 🇺🇸 机场推荐:dafei.de 美国 15_IPV4
+  server: 172.67.190.164
+  port: 443
+  uuid: 6a89a215-22bf-4bd7-9642-b95b2e09583a
+  cipher: auto
+  alterId: 0
+  tls: true
+  servername: guanwang.awsno.com
+  sni: guanwang.awsno.com
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /hls/cctv5phd.m3u8
+    headers:
+      Host: guanwang.awsno.com
+- name: 🇺🇸US_7|3.8MB/s|P002-260618
+  password: 'null'
+  port: 9002
+  server: 138.199.35.215
+  skip-cert-verify: true
+  sub_tag: P002-260618
+  tls: true
+  type: http
+  udp: true
+  username: 'null'
+  x-toolall-mihomo: true
+- name: 🇺🇸US-167.88.62.203-0130 | 67.062MB
+  server: 167.88.62.203
   port: 19999
   type: ss
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 🇺🇸US-38.128.66.32-0140 | 71.317MB
-  server: 38.128.66.32
+- name: 🇺🇸US-15.204.247.206-0203 | 7.048MB
+  server: 15.204.247.206
+  port: 4444
+  type: ss
+  cipher: aes-256-gcm
+  password: pKEW8JPByTVTLtM
+- name: 🇺🇸US-38.22.17.219-0133 | 63.044MB
+  server: 38.22.17.219
   port: 19999
   type: ss
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇺🇸US-149.40.57.138-0120 | 79.225MB
+  server: 149.40.57.138
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇺🇸 美国 | USA 9
+  server: d58daft.plp1.h1cloud.net
+  port: 443
+  type: vless
+  uuid: c82031be-e90f-4b15-ab4f-7ccef236d3ca
+  tls: true
+  reality-opts:
+    public-key: ixnCbdlT5sAVd-ilp2nG11CvnNsBCf9xPD56TlXxlR4
+    short-id: a91531ad58c8611c
+  servername: d58daft.plp1.h1cloud.net
+  client-fingerprint: chrome
+  network: tcp
 - name: 🇺🇸US-95.215.201.18-0157 | 111.888MB
   server: 95.215.201.18
   port: 19999
   type: ss
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: ProxyPool | 🇺🇸 美国 | USA 3
+- type: hysteria
+  name: 🇺🇸_US_美国_IPV4 (4)
   server: 137.175.82.44
+  port: 20022
+  password: dongtaiwang.com
+  tls: true
+  servername: bing.com
+  sni: bing.com
+  skip-cert-verify: true
+  alpn:
+  - h3
+  up: '11'
+  down: '55'
+  auth-str: dongtaiwang.com
+- name: 🇺🇸US-66.163.112.121-0119 | 34.726MB
+  server: 66.163.112.121
+  port: 443
+  type: trojan
+  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
+  sni: www.unlockyourfuturefindyourperfectcareer.com
+  skip-cert-verify: false
+- alpn:
+  - h3
+  auth-str: github.com/Alvin9999-newpac/fanqiang
+  auth_str: github.com/Alvin9999-newpac/fanqiang
+  down: 50
+  name: 🇺🇸 美国 | USA-2
+  port: 22335
+  server: 198.200.57.142
+  skip-cert-verify: true
+  type: hysteria
+  up: 10
+- name: 🇺🇸 美国 | USA 8
+  server: 137.175.82.43
   port: 20022
   type: hysteria
   auth_str: dongtaiwang.com
@@ -340,72 +441,31 @@ proxies:
   skip-cert-verify: true
   alpn:
   - h3
-- name: 🇺🇸US-15.204.247.206-0203 | 7.048MB
-  server: 15.204.247.206
-  port: 4444
-  type: ss
-  cipher: aes-256-gcm
-  password: pKEW8JPByTVTLtM
-- name: 🇺🇸US-149.40.57.138-0120 | 79.225MB
-  server: 149.40.57.138
+- name: 🇺🇸US-169.197.142.68-0121 | 77.243MB
+  server: 169.197.142.68
   port: 19999
   type: ss
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 🇺🇸US-156.146.38.168-0216 | 0.112MB
-  server: 156.146.38.168
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-- name: 🇺🇸US-38.22.17.219-0133 | 63.044MB
-  server: 38.22.17.219
+- name: 🇺🇸US-167.88.63.99-0127 | 50.096MB
+  server: 167.88.63.99
   port: 19999
   type: ss
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 🇺🇸 美国 | USA-2
-  server: 107.149.232.92
-  port: 443
-  type: hysteria2
-  password: fanvpn.net
-  auth: fanvpn.net
-  sni: www.bing.com
-  up: 100
-  down: 200
-  skip-cert-verify: true
-  alpn:
-  - h3
-  udp: true
-- name: 🇺🇸US-66.163.112.121-0119 | 34.726MB
-  server: 66.163.112.121
+- name: 🇺🇸US-23.150.152.38-0139 | 45.996MB
+  server: 23.150.152.38
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇺🇸US-167.88.61.52-0131 | 0.0MB
+  server: 167.88.61.52
   port: 443
   type: trojan
   password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  sni: www.unlockyourfuturefindyourperfectcareer.com
+  sni: courses.browseseniorrolesandenhanceyourcareertoday.com
   skip-cert-verify: false
-- name: 🇺🇸US-167.88.62.203-0130 | 67.062MB
-  server: 167.88.62.203
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 🇺🇸 美国 | USA 8
-  server: 162.35.101.177
-  port: 443
-  type: vless
-  uuid: cda0862a-0f87-4be9-8ed8-1d0c9e382839
-  tls: true
-  reality-opts:
-    public-key: cO3wYHISTeorXcM8ffaDCDdqZ-olBQL-GyZqb-W7rTk
-    short-id: bd8f712209a9c283
-  servername: 0592efg.us8.h1clayd.click
-  client-fingerprint: edge
-  network: grpc
-  grpc-opts:
-    grpc-mode: gun
-    grpc-service-name: 99f2107b03f8
-  udp: true
 - name: 🇺🇸US_3|3.0MB/s
   port: 9002
   server: 138.199.35.201
@@ -414,68 +474,63 @@ proxies:
   type: http
   udp: true
   x-toolall-mihomo: true
-- name: 🇺🇸US-167.88.63.99-0127 | 50.096MB
-  server: 167.88.63.99
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 🇺🇸 美国 | USA 6
-  server: 200.102.179.69
+- type: vless
+  name: 🇺🇸US丨yoyapai.com美国 (3)
+  server: 128.203.252.97
   port: 443
-  type: vless
-  uuid: 7592ca5c-b352-4562-8856-a9c936a3331b
-  tls: true
-  servername: dmbdnpctq8hjxx.hat.onl
-  client-fingerprint: chrome
-  network: xhttp
-  xhttp-opts:
-    path: /hls/014373eq/seg
-    host: dmbdnpctq8hjxx.hat.onl
-    mode: auto
+  uuid: 5e610f80-fc6a-479d-8621-b672355b96a1
   udp: true
+  tls: true
+  servername: cf-1rm.pages.dev
+  sni: cf-1rm.pages.dev
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: cf-1rm.pages.dev
 - name: 🇺🇸US-38.91.107.188-0152 | 74.821MB
   server: 38.91.107.188
   port: 19999
   type: ss
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 🇺🇸US_11|1.9MB/s
-  password: 1b609740-eec2-11ef-8543-f23c93136cb3
+- type: vless
+  name: 🇺🇸US美國丨yoyapai.com (9)
+  server: 185.193.29.123
   port: 443
-  server: 9420e530-te8ao0-tfnl0i-au6.fmtdc1.sghuawei.com
-  skip-cert-verify: true
-  sni: 9420e530-te8ao0-tfnl0i-au6.fmtdc1.sghuawei.com
+  uuid: 1d16c6e0-1bbe-435b-b661-90043fee999c
+  udp: true
   tls: true
-  type: http
-  username: 1b609740-eec2-11ef-8543-f23c93136cb3
-- name: 🇺🇸US-172.111.38.72-0122 | 63.302MB
-  server: 172.111.38.72
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- alpn:
-  - h3
-  auth-str: github.com/Alvin9999-newpac/fanqiang
-  down: '55'
-  name: 🇺🇸US_7|1018KB/s
-  password: github.com/Alvin9999-newpac/fanqiang
-  port: 22335
-  server: 198.200.57.142
-  servername: bing.com
+  servername: notls.lukongtou.eu.org
+  sni: notls.lukongtou.eu.org
+  skip-cert-verify: false
+  network: ws
+  ws-opts:
+    path: Telegram-WangCai2🇨🇳
+    headers:
+      Host: notls.lukongtou.eu.org
+- name: 🇺🇸US_11|1.2MB/s
+  password: test123
+  port: 1080
+  server: 104.168.249.36
   skip-cert-verify: true
-  sni: bing.com
-  tls: true
-  type: hysteria
-  up: '11'
+  type: socks5
+  username: test123
 - name: 🇺🇸US-38.22.17.129-0145 | 71.983MB
   server: 38.22.17.129
   port: 19999
   type: ss
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 🇺🇸 美国 | USA 3
+- name: 🇺🇸US-172.111.38.72-0122 | 63.302MB
+  server: 172.111.38.72
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇺🇸 美国 | USA 7
   server: 217.217.47.140
   port: 50769
   type: vless
@@ -489,18 +544,20 @@ proxies:
   client-fingerprint: chrome
   network: tcp
   udp: true
-- name: 🇺🇸 美国 | USA 4
-  server: caudal-reason.freevideochats.org
+- name: 🇺🇸 美国 | USA 3
+  server: US032013.ssgreen.org
   port: 443
-  type: vless
-  uuid: 2c4a1725-5b9e-4759-a792-72c52f12967a
+  type: vmess
+  uuid: 4b6411e3-914d-4d6c-b486-58b1b88f5c5f
+  alterId: 0
+  cipher: auto
   tls: true
-  flow: xtls-rprx-vision
-  reality-opts:
-    public-key: 6dc3iKXilOQpA_JFrKlk5-CsFjSmOm_5p0kSQcO9qi4
-  servername: challenge.worldoftanks.eu
-  client-fingerprint: chrome
-  network: tcp
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: /wes
+    headers:
+      Host: US032013.ssgreen.org
   udp: true
 - name: 🇺🇸US-193.151.163.18-0077 | 267.937MB
   server: 193.151.163.18
@@ -518,44 +575,35 @@ proxies:
   type: http
   udp: true
   x-toolall-mihomo: true
-- name: 🇺🇸 美国 | USA
-  server: 198.200.57.142
-  port: 22335
-  type: hysteria
-  auth_str: github.com/Alvin9999-newpac/fanqiang
-  auth-str: github.com/Alvin9999-newpac/fanqiang
-  up: 10
-  down: 50
-  skip-cert-verify: true
-  alpn:
-  - h3
-- name: 🇺🇸US-149.40.57.133-0118 | 52.375MB
-  server: 149.40.57.133
+- name: 🇺🇸US-167.88.61.175-0112 | 103.903MB
+  server: 167.88.61.175
+  port: 443
+  type: trojan
+  password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
+  sni: blog.browseseniorrolesandenhanceyourcareertoday.com
+  skip-cert-verify: false
+- name: 🇺🇸US-137.184.89.151-0134 | 115.23MB
+  server: 137.184.89.151
   port: 19999
   type: ss
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 🇺🇸US-18.117.92.138-0079 | 65.747MB
-  server: 18.117.92.138
-  port: 443
-  type: ss
-  cipher: aes-256-cfb
-  password: amazonskr05
-- name: 🇺🇸US-216.106.186.33-0217 | 47.312MB
-  server: resources.findlocaljobnetworkandbuildcommunityconnections.com
-  port: 443
-  type: trojan
-  password: f0eb8c92ce8946aaba856569cff1a16b
-  sni: resources.findlocaljobnetworkandbuildcommunityconnections.com
-  skip-cert-verify: false
-- name: 🇺🇸US-🚀@VPNine1
-  password: yO8pug5XmwkBXBAjleYIaVt
-  port: 443
-  server: 192.255.152.147
+- name: 🇺🇸US_5|3.0MB/s|P002-260618
+  password: None
+  port: 9002
+  server: 138.199.35.216
   skip-cert-verify: true
-  sni: 192.255.152.147
-  tls: false
-  type: hysteria2
+  sub_tag: P002-260618
+  tls: true
+  type: http
+  udp: true
+  x-toolall-mihomo: true
+- name: 🇺🇸US_22|1.1MB/s
+  port: 9002
+  server: 138.199.35.215
+  skip-cert-verify: true
+  tls: true
+  type: http
 - name: 🇺🇸US-156.146.38.169-0219 | 0.097MB
   server: 156.146.38.169
   port: 443
@@ -568,33 +616,12 @@ proxies:
   type: ss
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 🇺🇸US_5|1.1MB/s
-  port: 9443
-  server: 38.95.111.226
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-  x-toolall-mihomo: true
 - name: 🇺🇸US-216.106.178.169-0186 | 15.897MB
   server: 216.106.178.169
   port: 19999
   type: ss
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 🇺🇸 美国 | USA 5-2
-  server: 156.229.167.109
-  port: 8443
-  type: vless
-  uuid: eb8c97f7-a154-4442-91b0-54c0d055ad0b
-  tls: true
-  reality-opts:
-    public-key: 4g6gX0ueJap7pY_iTDx23h6bzo3KIOTcFzP1Uacn0QA
-    short-id: 4ad2e4e660550e43
-  servername: github.githubassets.com
-  client-fingerprint: chrome
-  network: tcp
-  udp: true
 - name: 🇺🇸US-156.146.38.167-0215 | 0.092MB
   server: 156.146.38.167
   port: 443
@@ -613,21 +640,38 @@ proxies:
   type: ss
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇺🇸US_21|3.4MB/s
+  password: None
+  port: 9002
+  server: 138.199.35.217
+  skip-cert-verify: true
+  tls: true
+  type: http
+  username: 'null'
+- name: 🇺🇸US-216.105.168.18-0218 | 0.0MB
+  server: 216.105.168.18
+  port: 443
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: hCCWOcIsK5wrFz4OX70rWf
+- name: 🇺🇸US-193.151.160.9-0075 | 186.091MB
+  server: 193.151.160.9
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- name: 🇺🇸US-38.91.100.39-0143 | 40.792MB
+  server: 38.91.100.39
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
 - name: 🇺🇸US-38.121.43.225-0117 | 75.137MB
   server: 38.121.43.225
   port: 19999
   type: ss
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-- name: 🇩🇪DE_2|2.9MB/s|R002-260618
-  port: 443
-  server: 172.64.68.89
-  skip-cert-verify: true
-  sub_tag: R002-260618
-  tls: true
-  type: http
-  udp: true
-  x-toolall-mihomo: true
 - name: 🇩🇪DE_6|1.4MB/s
   password: 'null'
   port: 443
@@ -636,21 +680,7 @@ proxies:
   tls: true
   type: http
   username: 'null'
-- name: 🇩🇪DE_4|1000KB/s
-  password: None
-  port: 443
-  server: 172.64.68.89
-  skip-cert-verify: true
-  tls: true
-  type: http
-- name: US_speednode_0039
-  port: 8443
-  server: 44.248.167.117
-  skip-cert-verify: true
-  tls: true
-  type: http
-  udp: true
-- name: 🇩🇪DE_1|3.0MB/s
+- name: 🇩🇪DE_1|2.2MB/s
   port: 443
   server: 172.64.69.89
   skip-cert-verify: true
@@ -665,191 +695,210 @@ proxies:
   tls: false
   type: hysteria2
 - cipher: aes-256-gcm
+  name: 🏳[www.v2nodes.com] ss-
+  password: kDWvXYZoTBcGkC4
+  port: 8882
+  server: 51.222.136.236
+  type: ss
+- cipher: chacha20-ietf-poly1305
+  name: 🇨🇦[www.v2nodes.com] ss-CA-1555...
+  password: 575hiopq2h28yao6
+  port: 8080
+  server: 15.235.121.109
+  type: ss
+- cipher: aes-256-gcm
   name: 🇲🇽[www.v2nodes.com] ss-MX-1564...
   password: BWyPPTusFKhGgzKh
   port: 8388
   server: 64.177.90.30
   type: ss
+- name: US_speednode_0040
+  port: 443
+  server: 38.247.141.135
+  skip-cert-verify: true
+  tls: true
+  type: http
+  udp: true
 proxy-groups:
 - name: AUTO-FAST
   type: url-test
   proxies:
-  - '🇸🇬 新加坡 | SGP #1'
-  - '🇯🇵[www.v2nodes.com] vless-JP-1... #4'
   - 🇯🇵_JP_日本_IPV4
-  - '🇭🇰 香港 | HKG #4'
-  - 🇭🇰 香港 | HKG 2
+  - 🇭🇰HK香港 (4)
   - 🇭🇰HK-16.106.7.232-0252 | 0.022MB
+  - 🇸🇬_SG_新加坡_IPV4
+  - 🇸🇬SG_3|2.0MB/s
   - '🇸🇬[www.v2nodes.com] ss-SG-1616... #1'
   - 🇸🇬[www.v2nodes.com] ss-SG-1615...
   - 🇯🇵JP-168.138.205.100-5406 | 1.219MB
+  - 🇯🇵[www.v2nodes.com] ss-JP-1599...
+  - 🇸🇬[www.v2nodes.com] vless-SG-8...
   - 🇯🇵[www.v2nodes.com] ss-JP-1544...
-  - 🇯🇵 日本 | JPN 2
   - '🇸🇬[www.v2nodes.com] ss-SG-1615... #1'
-  - '🇸🇬[www.v2nodes.com] ss-SG-1615... #3'
-  - '🇸🇬[www.v2nodes.com] vless-SG-1... #7'
-  - '🇯🇵 日本 | JPN #2'
+  - '🇯🇵[www.v2nodes.com] vless-JP-1... #3-2'
+  - 🇭🇰HK_2|1.3MB/s
+  - 🇯🇵JP_1|4.2MB/s
   - '🇭🇰[www.v2nodes.com] ss-HK-1621... #1'
   - 🇸🇬SG-149.88.106.73-0150 | 46.271MB
   - 🇸🇬SG-68.183.227.4-0182 | 21.988MB
+  - 🇯🇵JP日本丨yoyapai.com (2)
   - 🇭🇰 香港 | HKG
+  - '🇯🇵[www.v2nodes.com] vless-JP-1... #3'
   - '🇭🇰 香港 | HKG #1'
   - 🇯🇵JP-84.247.155.196-0209 | 0.163MB
   - '🇸🇬[www.v2nodes.com] trojan-SG-... #1'
+  - 🇸🇬SG新加坡丨yoyapai.com
   - 🇯🇵JP-168.138.205.100-0221 | 1.456MB
-  - 🇯🇵 日本 | JPN
   - '🇸🇬[www.v2nodes.com] ss-SG-1615... #2'
-  - 🇭🇰HK_1|1.9MB/s
+  - '🇸🇬[www.v2nodes.com] vless-SG-1... #5'
   - 🇸🇬[www.v2nodes.com] ss-SG-1616...
-  - '🇸🇬 新加坡 | SGP #2'
   - 🇸🇬[www.v2nodes.com] trojan-SG-...
-  - 🇺🇸US-169.197.142.68-0121 | 77.243MB
-  - 🇺🇸US-137.184.89.151-0134 | 115.23MB
-  - 🇺🇸US_10|1.1MB/s
   - 🇺🇸US-156.146.38.170-0213 | 0.098MB
   - 🇺🇸US-185.230.230.18-0105 | 211.994MB
-  - 🇺🇸US-23.150.152.38-0139 | 45.996MB
-  - 🇺🇸US-66.163.112.13-0128 | 43.498MB
-  - 🇺🇸US-172.111.36.123-0144 | 79.497MB
+  - 🇺🇸_US_美国_IPV4 (3)
   - 🇺🇸US-38.128.66.32-0140 | 71.317MB
-  - 🇺🇸US-95.215.201.18-0157 | 111.888MB
-  - ProxyPool | 🇺🇸 美国 | USA 3
+  - 🇺🇸US-172.111.36.123-0144 | 79.497MB
+  - 🇺🇸US-66.163.112.13-0128 | 43.498MB
+  - 🇺🇸US-156.146.38.168-0216 | 0.112MB
+  - 🇺🇸 机场推荐:dafei.de 美国 15_IPV4
+  - 🇺🇸US_7|3.8MB/s|P002-260618
+  - 🇺🇸US-167.88.62.203-0130 | 67.062MB
   url: http://www.gstatic.com/generate_204
   interval: 120
 - name: HK-POOL
   type: url-test
   proxies:
-  - '🇭🇰 香港 | HKG #4'
-  - 🇭🇰 香港 | HKG 2
+  - 🇭🇰HK香港 (4)
   - 🇭🇰HK-16.106.7.232-0252 | 0.022MB
+  - 🇭🇰HK_2|1.3MB/s
   - '🇭🇰[www.v2nodes.com] ss-HK-1621... #1'
   - 🇭🇰 香港 | HKG
   - '🇭🇰 香港 | HKG #1'
-  - 🇭🇰HK_1|1.9MB/s
   url: http://www.gstatic.com/generate_204
   interval: 120
 - name: JP-POOL
   type: url-test
   proxies:
-  - '🇯🇵[www.v2nodes.com] vless-JP-1... #4'
   - 🇯🇵_JP_日本_IPV4
   - 🇯🇵JP-168.138.205.100-5406 | 1.219MB
+  - 🇯🇵[www.v2nodes.com] ss-JP-1599...
   - 🇯🇵[www.v2nodes.com] ss-JP-1544...
-  - 🇯🇵 日本 | JPN 2
-  - '🇯🇵 日本 | JPN #2'
+  - '🇯🇵[www.v2nodes.com] vless-JP-1... #3-2'
+  - 🇯🇵JP_1|4.2MB/s
+  - 🇯🇵JP日本丨yoyapai.com (2)
+  - '🇯🇵[www.v2nodes.com] vless-JP-1... #3'
   - 🇯🇵JP-84.247.155.196-0209 | 0.163MB
   - 🇯🇵JP-168.138.205.100-0221 | 1.456MB
-  - 🇯🇵 日本 | JPN
   url: http://www.gstatic.com/generate_204
   interval: 120
 - name: US-POOL
   type: url-test
   proxies:
-  - 🇺🇸US-169.197.142.68-0121 | 77.243MB
-  - 🇺🇸US-137.184.89.151-0134 | 115.23MB
-  - 🇺🇸US_10|1.1MB/s
   - 🇺🇸US-156.146.38.170-0213 | 0.098MB
   - 🇺🇸US-185.230.230.18-0105 | 211.994MB
-  - 🇺🇸US-23.150.152.38-0139 | 45.996MB
-  - 🇺🇸US-66.163.112.13-0128 | 43.498MB
-  - 🇺🇸US-172.111.36.123-0144 | 79.497MB
+  - 🇺🇸_US_美国_IPV4 (3)
   - 🇺🇸US-38.128.66.32-0140 | 71.317MB
-  - 🇺🇸US-95.215.201.18-0157 | 111.888MB
-  - ProxyPool | 🇺🇸 美国 | USA 3
-  - 🇺🇸US-15.204.247.206-0203 | 7.048MB
-  - 🇺🇸US-149.40.57.138-0120 | 79.225MB
+  - 🇺🇸US-172.111.36.123-0144 | 79.497MB
+  - 🇺🇸US-66.163.112.13-0128 | 43.498MB
   - 🇺🇸US-156.146.38.168-0216 | 0.112MB
-  - 🇺🇸US-38.22.17.219-0133 | 63.044MB
-  - 🇺🇸 美国 | USA-2
-  - 🇺🇸US-66.163.112.121-0119 | 34.726MB
+  - 🇺🇸 机场推荐:dafei.de 美国 15_IPV4
+  - 🇺🇸US_7|3.8MB/s|P002-260618
   - 🇺🇸US-167.88.62.203-0130 | 67.062MB
+  - 🇺🇸US-15.204.247.206-0203 | 7.048MB
+  - 🇺🇸US-38.22.17.219-0133 | 63.044MB
+  - 🇺🇸US-149.40.57.138-0120 | 79.225MB
+  - 🇺🇸 美国 | USA 9
+  - 🇺🇸US-95.215.201.18-0157 | 111.888MB
+  - 🇺🇸_US_美国_IPV4 (4)
+  - 🇺🇸US-66.163.112.121-0119 | 34.726MB
+  - 🇺🇸 美国 | USA-2
   - 🇺🇸 美国 | USA 8
-  - 🇺🇸US_3|3.0MB/s
+  - 🇺🇸US-169.197.142.68-0121 | 77.243MB
   - 🇺🇸US-167.88.63.99-0127 | 50.096MB
-  - 🇺🇸 美国 | USA 6
+  - 🇺🇸US-23.150.152.38-0139 | 45.996MB
+  - 🇺🇸US-167.88.61.52-0131 | 0.0MB
+  - 🇺🇸US_3|3.0MB/s
+  - 🇺🇸US丨yoyapai.com美国 (3)
   - 🇺🇸US-38.91.107.188-0152 | 74.821MB
-  - 🇺🇸US_11|1.9MB/s
-  - 🇺🇸US-172.111.38.72-0122 | 63.302MB
-  - 🇺🇸US_7|1018KB/s
+  - 🇺🇸US美國丨yoyapai.com (9)
+  - 🇺🇸US_11|1.2MB/s
   - 🇺🇸US-38.22.17.129-0145 | 71.983MB
+  - 🇺🇸US-172.111.38.72-0122 | 63.302MB
+  - 🇺🇸 美国 | USA 7
   - 🇺🇸 美国 | USA 3
-  - 🇺🇸 美国 | USA 4
   - 🇺🇸US-193.151.163.18-0077 | 267.937MB
   - 🇺🇸US_4|1.3MB/s|K001-260618
-  - 🇺🇸 美国 | USA
-  - 🇺🇸US-149.40.57.133-0118 | 52.375MB
-  - 🇺🇸US-18.117.92.138-0079 | 65.747MB
-  - 🇺🇸US-216.106.186.33-0217 | 47.312MB
+  - 🇺🇸US-167.88.61.175-0112 | 103.903MB
   url: http://www.gstatic.com/generate_204
   interval: 120
 - name: AI-POOL
   type: url-test
   proxies:
-  - 🇺🇸US-169.197.142.68-0121 | 77.243MB
+  - 🇺🇸US-167.88.62.203-0130 | 67.062MB
   - 🇺🇸US-137.184.89.151-0134 | 115.23MB
-  - 🇺🇸US_10|1.1MB/s
-  - 🇩🇪DE_4|1000KB/s
-  - 🇩🇪DE_2|2.9MB/s|R002-260618
-  - 🇩🇪DE_1|3.0MB/s
+  - 🇺🇸US-156.146.38.167-0215 | 0.092MB
+  - 🇺🇸US-156.146.38.168-0216 | 0.112MB
+  - 🇺🇸US-156.146.38.169-0219 | 0.097MB
+  - 🇺🇸US-156.146.38.170-0213 | 0.098MB
+  - 🇺🇸US-38.128.66.32-0140 | 71.317MB
+  - 🇺🇸US-216.106.178.169-0186 | 15.897MB
+  - 🇺🇸US-216.105.168.18-0218 | 0.0MB
+  - 🇺🇸US-167.88.63.99-0127 | 50.096MB
+  - 🇺🇸US-38.22.17.129-0145 | 71.983MB
+  - 🇺🇸US-38.121.43.231-0138 | 77.114MB
+  - 🇺🇸US-172.111.36.123-0144 | 79.497MB
+  - 🇺🇸US-38.22.17.219-0133 | 63.044MB
+  - 🇺🇸US-38.121.43.18-0124 | 75.455MB
+  - 🇺🇸US-38.121.43.225-0117 | 75.137MB
   - 🇺🇸US-23.150.152.38-0139 | 45.996MB
   - 🇩🇪DE_6|1.4MB/s
-  - 🇺🇸US_3|3.0MB/s
-  - 🇺🇸 美国 | USA 5-2
-  - 🇺🇸US-🚀@VPNine1
-  - 🇺🇸US_5|1.1MB/s
-  - 🇺🇸US-95.215.201.18-0157 | 111.888MB
-  - 🇺🇸US_11|1.9MB/s
-  - 🇺🇸US-66.163.112.13-0128 | 43.498MB
-  - 🇺🇸US-66.163.112.121-0119 | 34.726MB
-  - 🇺🇸US-156.146.38.167-0215 | 0.092MB
-  - 🇺🇸US-156.146.38.169-0219 | 0.097MB
-  - 🇺🇸US-156.146.38.168-0216 | 0.112MB
-  - 🇺🇸US-167.88.62.203-0130 | 67.062MB
-  - 🇺🇸US-156.146.38.170-0213 | 0.098MB
-  - 🇺🇸US-216.106.178.169-0186 | 15.897MB
-  - US_speednode_0039
+  - 🇺🇸US-169.197.142.68-0121 | 77.243MB
+  - 🇩🇪DE_1|2.2MB/s
   - 🪅97@oneclickvpnkeys
+  - US_speednode_0040
+  - 🇺🇸US-193.151.163.18-0077 | 267.937MB
+  - 🏳[www.v2nodes.com] ss-
   - 🇲🇽[www.v2nodes.com] ss-MX-1564...
-  - 🇺🇸US-149.40.57.134-0166 | 17.561MB
-  - 🇺🇸US-149.40.57.138-0120 | 79.225MB
-  - 🇺🇸US-38.22.17.219-0133 | 63.044MB
-  - 🇺🇸US-38.121.43.231-0138 | 77.114MB
-  - 🇺🇸US-38.22.17.129-0145 | 71.983MB
+  - 🇺🇸US-95.215.201.18-0157 | 111.888MB
+  - 🇺🇸US-193.151.160.9-0075 | 186.091MB
+  - 🇨🇦[www.v2nodes.com] ss-CA-1555...
+  - 🇺🇸US_5|3.0MB/s|P002-260618
+  - 🇺🇸US_22|1.1MB/s
   url: http://www.gstatic.com/generate_204
   interval: 120
 - name: STREAM-POOL
   type: url-test
   proxies:
-  - 🇺🇸US-169.197.142.68-0121 | 77.243MB
-  - 🇺🇸US-137.184.89.151-0134 | 115.23MB
-  - 🇺🇸US_10|1.1MB/s
-  - 🇺🇸US-23.150.152.38-0139 | 45.996MB
-  - 🇺🇸US_3|3.0MB/s
-  - 🇺🇸 美国 | USA 5-2
-  - 🇺🇸US-🚀@VPNine1
-  - 🇺🇸US_5|1.1MB/s
-  - 🇺🇸US-95.215.201.18-0157 | 111.888MB
-  - 🇺🇸US_11|1.9MB/s
-  - 🇺🇸US-66.163.112.13-0128 | 43.498MB
-  - 🇺🇸US-66.163.112.121-0119 | 34.726MB
-  - 🇺🇸US-156.146.38.167-0215 | 0.092MB
-  - 🇺🇸US-156.146.38.169-0219 | 0.097MB
-  - 🇺🇸US-156.146.38.168-0216 | 0.112MB
   - 🇺🇸US-167.88.62.203-0130 | 67.062MB
+  - 🇺🇸US-137.184.89.151-0134 | 115.23MB
+  - 🇺🇸US-156.146.38.167-0215 | 0.092MB
+  - 🇺🇸US-156.146.38.168-0216 | 0.112MB
+  - 🇺🇸US-156.146.38.169-0219 | 0.097MB
   - 🇺🇸US-156.146.38.170-0213 | 0.098MB
+  - 🇺🇸US-38.128.66.32-0140 | 71.317MB
   - 🇺🇸US-216.106.178.169-0186 | 15.897MB
-  - 🇺🇸US-149.40.57.134-0166 | 17.561MB
-  - 🇺🇸US-149.40.57.138-0120 | 79.225MB
-  - 🇺🇸US-38.22.17.219-0133 | 63.044MB
-  - 🇺🇸US-38.121.43.231-0138 | 77.114MB
-  - 🇺🇸US-38.22.17.129-0145 | 71.983MB
-  - 🇺🇸US-38.121.43.18-0124 | 75.455MB
+  - 🇺🇸US-216.105.168.18-0218 | 0.0MB
   - 🇺🇸US-167.88.63.99-0127 | 50.096MB
-  - 🇺🇸US-18.117.92.138-0079 | 65.747MB
+  - 🇺🇸US-38.22.17.129-0145 | 71.983MB
+  - 🇺🇸US-38.121.43.231-0138 | 77.114MB
   - 🇺🇸US-172.111.36.123-0144 | 79.497MB
+  - 🇺🇸US-38.22.17.219-0133 | 63.044MB
+  - 🇺🇸US-38.121.43.18-0124 | 75.455MB
   - 🇺🇸US-38.121.43.225-0117 | 75.137MB
-  - 🇺🇸US-149.40.57.133-0118 | 52.375MB
-  - 🇺🇸US-216.106.186.33-0217 | 47.312MB
+  - 🇺🇸US-23.150.152.38-0139 | 45.996MB
+  - 🇺🇸US-169.197.142.68-0121 | 77.243MB
+  - 🇺🇸US-193.151.163.18-0077 | 267.937MB
+  - 🇺🇸US-95.215.201.18-0157 | 111.888MB
+  - 🇺🇸US-193.151.160.9-0075 | 186.091MB
+  - 🇺🇸US_5|3.0MB/s|P002-260618
+  - 🇺🇸US_22|1.1MB/s
+  - 🇺🇸US_7|3.8MB/s|P002-260618
+  - 🇺🇸US_21|3.4MB/s
+  - 🇺🇸US-38.91.100.39-0143 | 40.792MB
+  - 🇺🇸US_3|3.0MB/s
+  - 🇺🇸US美國丨yoyapai.com (9)
+  - 🇺🇸US-149.40.57.138-0120 | 79.225MB
+  - 🇺🇸US-149.40.57.134-0166 | 17.561MB
   url: http://www.gstatic.com/generate_204
   interval: 120
 - name: FALLBACK
