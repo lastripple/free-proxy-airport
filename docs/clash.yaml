@@ -7,7 +7,7 @@ unified-delay: true
 tcp-concurrent: true
 global-client-fingerprint: chrome
 generated-by: free-proxy-airport-v7
-generated-at: '2026-11-16T08:13:27.751168+00:00'
+generated-at: '2026-11-16T18:45:52.509355+00:00'
 proxies:
 - type: vmess
   name: 🇭🇰HK香港 (5)
