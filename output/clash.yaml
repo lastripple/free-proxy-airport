@@ -7,7 +7,7 @@ unified-delay: true
 tcp-concurrent: true
 global-client-fingerprint: chrome
 generated-by: free-proxy-airport-v7
-generated-at: '2026-11-16T01:16:03.142363+00:00'
+generated-at: '2026-11-16T08:13:27.751168+00:00'
 proxies:
 - type: vmess
   name: 🇭🇰HK香港 (5)
@@ -654,10 +654,6 @@ proxy-groups:
   - 🇭🇰 香港 | HKG 3
   - 🇸🇬SG-149.88.106.73-0266 | 43.319MB
   - 🇯🇵[www.v2nodes.com] ss-JP-1544...
-  - 🇯🇵 日本 | JPN 2
-  - 🇭🇰HK-16.106.7.232-0598 | 0.015MB
-  - 🇭🇰 香港 | HKG 5
-  - 日本2|@ripaojiedian
   url: http://www.gstatic.com/generate_204
   interval: 120
 - name: STREAM-POOL
